@@ -1,0 +1,140 @@
+rjhk6@LAPTOP-3GTFTOKG:~$ cd "/mnt/c/Quantum MTech_1_8_2026/TEst2"
+rjhk6@LAPTOP-3GTFTOKG:/mnt/c/Quantum MTech_1_8_2026/TEst2$ sudo apt update
+[sudo: authenticate] Password:
+Hit:1 http://archive.ubuntu.com/ubuntu resolute InRelease
+Get:2 http://security.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+Get:3 http://archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+Get:4 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Packages [600 kB]
+Get:5 http://archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+Get:6 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Packages [734 kB]
+Get:7 http://security.ubuntu.com/ubuntu resolute-security/main Translation-en [138 kB]
+Get:8 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Components [46.7 kB]
+Get:9 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Packages [201 kB]
+Get:10 http://security.ubuntu.com/ubuntu resolute-security/universe Translation-en [65.4 kB]
+Get:11 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Components [55.6 kB]
+Get:12 http://security.ubuntu.com/ubuntu resolute-security/restricted amd64 Packages [495 kB]
+Get:13 http://archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [173 kB]
+Get:14 http://security.ubuntu.com/ubuntu resolute-security/restricted Translation-en [99.6 kB]
+Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Components [110 kB]
+Get:16 http://security.ubuntu.com/ubuntu resolute-security/multiverse amd64 Packages [20.0 kB]
+Get:17 http://security.ubuntu.com/ubuntu resolute-security/multiverse Translation-en [3728 B]
+Get:18 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Packages [323 kB]
+Get:19 http://archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [106 kB]
+Get:20 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Components [201 kB]
+Get:21 http://archive.ubuntu.com/ubuntu resolute-updates/restricted amd64 Packages [508 kB]
+Get:22 http://archive.ubuntu.com/ubuntu resolute-updates/restricted Translation-en [101 kB]
+Get:23 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse amd64 Packages [21.0 kB]
+Get:24 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse Translation-en [4168 B]
+Get:25 http://archive.ubuntu.com/ubuntu resolute-backports/universe amd64 Components [1060 B]
+Fetched 4418 kB in 2s (1883 kB/s)
+58 packages can be upgraded. Run 'apt list --upgradable' to see them.
+rjhk6@LAPTOP-3GTFTOKG:/mnt/c/Quantum MTech_1_8_2026/TEst2$ sudo apt install -y build-essential git
+build-essential is already the newest version (12.12ubuntu2.26.04.2).
+git is already the newest version (1:2.53.0-1ubuntu1).
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 58
+rjhk6@LAPTOP-3GTFTOKG:/mnt/c/Quantum MTech_1_8_2026/TEst2$ cd ~
+rjhk6@LAPTOP-3GTFTOKG:~$ git clone https://github.com/terrillmoore/NIST-Statistical-Test-Suite.git nist-sts
+fatal: destination path 'nist-sts' already exists and is not an empty directory.
+rjhk6@LAPTOP-3GTFTOKG:~$ cd nist-sts
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts$ ./setup.sh
+Setting up directories in ./sts/experiments.
+./sts/obj already exists.
+./sts/experiments/AlgorithmTesting already exists.
+./sts/experiments/BBS already exists.
+./sts/experiments/CCG already exists.
+./sts/experiments/G-SHA1 already exists.
+./sts/experiments/LCG already exists.
+./sts/experiments/MODEXP already exists.
+./sts/experiments/MS already exists.
+./sts/experiments/QCG1 already exists.
+./sts/experiments/QCG2 already exists.
+./sts/experiments/XOR already exists.
+Creating the subdirectories via ./sts/experiments/create-dir-script.
+Skipping create-dir-script. It appears that it was already run?
+Directories are set up. Change directory to ./sts and say 'make'!
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts$ cd ./sts
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ make
+make: 'assess' is up to date.
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ cp "/mnt/c/Quantum MTech_1_8_2026/TEst2/csprng_dataset_imb.bin" csprng_dataset_imb.bin
+cp: cannot stat '/mnt/c/Quantum MTech_1_8_2026/TEst2/csprng_dataset_imb.bin': No such file or directory
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ ^C
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ cp "/mnt/c/Quantum MTech_1_8_2026/TEst2/csprng_dataset_1mb.bin" csprng_dataset_imb.bin
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ ./assess 1000000
+           G E N E R A T O R    S E L E C T I O N
+           ______________________________________
+
+    [0] Input File                 [1] Linear Congruential
+    [2] Quadratic Congruential I   [3] Quadratic Congruential II
+    [4] Cubic Congruential         [5] XOR
+    [6] Modular Exponentiation     [7] Blum-Blum-Shub
+    [8] Micali-Schnorr             [9] G Using SHA-1
+
+   Enter Choice: 0
+
+
+                User Prescribed Input File: 1
+
+File Error:  file 1 could not be opened.
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ ./assess 1000000
+           G E N E R A T O R    S E L E C T I O N
+           ______________________________________
+
+    [0] Input File                 [1] Linear Congruential
+    [2] Quadratic Congruential I   [3] Quadratic Congruential II
+    [4] Cubic Congruential         [5] XOR
+    [6] Modular Exponentiation     [7] Blum-Blum-Shub
+    [8] Micali-Schnorr             [9] G Using SHA-1
+
+   Enter Choice: 0
+
+
+                User Prescribed Input File:  csprng_dataset_imb.bin
+
+                S T A T I S T I C A L   T E S T S
+                _________________________________
+
+    [01] Frequency                       [02] Block Frequency
+    [03] Cumulative Sums                 [04] Runs
+    [05] Longest Run of Ones             [06] Rank
+    [07] Discrete Fourier Transform      [08] Nonperiodic Template Matchings
+    [09] Overlapping Template Matchings  [10] Universal Statistical
+    [11] Approximate Entropy             [12] Random Excursions
+    [13] Random Excursions Variant       [14] Serial
+    [15] Linear Complexity
+
+         INSTRUCTIONS
+            Enter 0 if you DO NOT want to apply all of the
+            statistical tests to each sequence and 1 if you DO.
+
+   Enter Choice: 1
+
+        P a r a m e t e r   A d j u s t m e n t s
+        -----------------------------------------
+    [1] Block Frequency Test - block length(M):         128
+    [2] NonOverlapping Template Test - block length(m): 9
+    [3] Overlapping Template Test - block length(m):    9
+    [4] Approximate Entropy Test - block length(m):     10
+    [5] Serial Test - block length(m):                  16
+    [6] Linear Complexity Test - block length(M):       500
+
+   Select Test (0 to continue): 0
+
+   How many bitstreams? 8
+
+   Input File Format:
+    [0] ASCII - A sequence of ASCII 0's and 1's
+    [1] Binary - Each byte in data file contains 8 bits of data
+
+   Select input mode:  1
+
+     Statistical Testing In Progress.........
+
+     Statistical Testing Complete!!!!!!!!!!!!
+
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ find experiments/ -name "*Report*.txt" -o -name "finalAnalysisReport.txt"
+experiments/AlgorithmTesting/finalAnalysisReport.txt
+experiments/LCG/finalAnalysisReport.txt
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ cp experiments/AlgorithmTesting/finalAnalysisReport.txt "/mnt/c/Quantum MTech_1_8_2026/TEst2/basic_prng_NIST_report.txt"
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$ cp experiments/AlgorithmTesting/finalAnalysisReport.txt "/mnt/c/Quantum MTech_1_8_2026/TEst2/Second_Test_uinsg_Csprng.txt"
+rjhk6@LAPTOP-3GTFTOKG:~/nist-sts/sts$
